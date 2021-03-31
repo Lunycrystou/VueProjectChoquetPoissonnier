@@ -1,2 +1,2 @@
-# VueProjectChoquetPoissonnier
-Projet de Vue.js de L3 SDN
+# Project : Dungeons and Dragons Wiki
+Projet de Vue.js de L3 SDN réalisé par POISSONNIER Zacharie et CHOQUET Inès. Notre but était de présenter un mini wikipédia reprenant les bases de la licence la plus connue de RPG sur table, par exemple les différentes classes, les différents sortilèges...

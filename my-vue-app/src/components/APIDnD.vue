@@ -4,10 +4,11 @@
         <button @click="searchByCategory(filtre)">Lancer la recherche</button>
         <br/>
         <!--{{result}}
-        <br/>{{ donnees }}-->
+        <br/>{{ donnees }}
         <div v-for="donnee in donnees.results" :key="donnee.id">
             {{donnee}}
-        </div>
+        </div>-->
+        <div v-for="spell in selectedSpells" :key="spell.index">{{spell?.name}} || {{spell?.url}}</div>
     </div>
 </template>
 
@@ -39,6 +40,19 @@
                 filtre,
                 result,
             };
+        },
+        computed: {
+            /*filteredList() {
+                return this.donnees.index.filter(donnee => {
+                    return donnee.index.toLowerCase().indexOf(this.filtre.toLowerCase()) > -1
+                });
+                /*return this.donnes.result.filter(post => {
+                return index.toLowerCase().includes(this.search.toLowerCase())
+            },*/
+            
+            selectedSpells(){
+                return this.donnees.results?.filter( donnee => donnee.name.toLowerCase().includes(this.filtre.toLowerCase()));
+            }
         },
         methods: {
             searchByCategory(filtre){

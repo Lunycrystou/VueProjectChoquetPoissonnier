@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-//import routeur from 'routeur'
+import router from "./router/spellRouteur"
 
-createApp(App)./*use(routeur).*/mount('#app')
+createApp(App).use(router).mount('#app')

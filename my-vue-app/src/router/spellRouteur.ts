@@ -1,8 +1,14 @@
-import {createRouter, createWebHashHistory} from 'vue-router';
+import {createRouter, createWebHistory} from 'vue-router';
 import SpellSearch from '../components/APIDnD.vue';
 import resultSearchSpell from '../components/resultSearchSpell.vue';
+import Accueil from '../components/Accueil.vue';
 
 const routes = [
+  {
+    path: '/',
+    component: Accueil,
+  },
+  
   {
     path: '/spells',
     component: SpellSearch,
@@ -11,12 +17,11 @@ const routes = [
   {
     path: '/spells/:name',
     component: resultSearchSpell,
-    props: true,
   }
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
 

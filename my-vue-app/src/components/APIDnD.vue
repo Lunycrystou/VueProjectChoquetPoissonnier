@@ -1,14 +1,15 @@
 <template>
     <div>
+        <router-link to="/">Accueil</router-link>
+        <br/>
         <input type="text" v-model="filtre" />
-        <button @click="searchByCategory(filtre)">Lancer la recherche</button>
         <br/>
         <!--{{result}}
         <br/>{{ donnees }}
         <div v-for="donnee in donnees.results" :key="donnee.id">
             {{donnee}}
         </div>-->
-        <div v-for="spell in selectedSpells" :key="spell.index">{{spell?.name}} || {{spell?.url}}</div>
+        <br/><div v-for="spell in selectedSpells" :key="spell.index"><router-link v-bind:to="'/spells/'+spell.index">{{spell?.name}}</router-link></div>
     </div>
 </template>
 
@@ -55,9 +56,10 @@
             }
         },
         methods: {
-            searchByCategory(filtre){
+            searchByName(filtre){
                 if(filtre != ''){
-                    this.result = "hi ! tu cherches pour le filtre " + filtre;
+                    this.result = "hi ! tu cherches les infos pour " + filtre;
+                    // Donc ici il faut faire une requête à l'api pour recup les données du spell ?
                 }else{
                     this.result = "rentrez une catégorie (ex : spell, classes...) !";
                 }

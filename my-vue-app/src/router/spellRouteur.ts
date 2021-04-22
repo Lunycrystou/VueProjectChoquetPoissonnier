@@ -1,5 +1,5 @@
 import {createRouter, createWebHistory} from 'vue-router';
-import SpellSearch from '../components/APIDnD.vue';
+import SpellSearch from '../components/spellSearch.vue';
 import resultSearchSpell from '../components/resultSearchSpell.vue';
 import Accueil from '../components/Accueil.vue';
 

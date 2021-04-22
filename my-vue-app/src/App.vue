@@ -5,12 +5,13 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import APIDnD from './components/APIDnD.vue'
+import { useStore } from 'vuex';
+import spellSearch from './components/spellSearch.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    APIDnD
+    spellSearch
   }
 });
 </script>

@@ -1,6 +1,19 @@
 <template>
     <div>
-        <router-link to="/">Accueil</router-link>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; border:1px dotted #82919b">
+            <span class="navbar-brand">DnD Wiki</span>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <router-link to="/home" class="nav-link">Accueil</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/spells" class="nav-link">Sorts</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/species" class="nav-link">Espèces</router-link>
+                </li>
+            </ul>
+        </nav>
         <br/>
         <input type="text" v-model="filtre" />
         <br/>

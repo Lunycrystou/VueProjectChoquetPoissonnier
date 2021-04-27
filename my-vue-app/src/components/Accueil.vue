@@ -1,20 +1,41 @@
 <template>
     <div>
-        <router-link to="/spells">Sorts</router-link>
-        <br/><br/>
-        Bienvenue sur le site !
-        <br/><br/>Nombre de visites sur le site : <!--{{nbVisites}}-->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; border:1px dotted #82919b">
+            <span class="navbar-brand">DnD Wiki</span>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <router-link to="/home" class="nav-link">Accueil</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/spells" class="nav-link">Sorts</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/species" class="nav-link">Espèces</router-link>
+                </li>
+            </ul>
+        </nav>
+        <div class="container">
+            Bienvenue sur le site !
+            <br/><br/>Nombre de visites sur le site : {{nbVisites}}
+        </div>
     </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
+import { mapGetters } from "vuex";
 
 export default defineComponent({
+    data() {
+        this.$store.commit('incrementVisite');
+    },
     computed: {
-        nbVisites(){
-            return $this.store.count;
-        }
+        ...mapGetters({ // fait la même chose qu'en-dessous mais plus pratique s'il y a beaucoup de données à récupérer
+            'nbVisites': 'getNbVisites',
+        })
+        // nbVisites(){
+        //     return this.$store.getters.getCount;
+        // }
     }
 });
 </script>

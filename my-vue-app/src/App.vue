@@ -23,6 +23,12 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color: #f3f3f3;
+  height: 100vh;
+  /*margin-top: 60px;*/
+}
+.container {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 </style>

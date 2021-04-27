@@ -17,6 +17,7 @@
         <div class="container">
             Bienvenue sur le site !
             <br/><br/>Nombre de visites sur le site : {{nbVisites}}
+            <br/><br/>Nombre de recherches sur le site : {{nbRecherches}}
         </div>
     </div>
 </template>
@@ -32,6 +33,7 @@ export default defineComponent({
     computed: {
         ...mapGetters({ // fait la même chose qu'en-dessous mais plus pratique s'il y a beaucoup de données à récupérer
             'nbVisites': 'getNbVisites',
+            'nbRecherches' : 'getNbRecherches'
         })
         // nbVisites(){
         //     return this.$store.getters.getCount;

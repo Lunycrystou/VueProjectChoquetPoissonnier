@@ -22,7 +22,7 @@
         <div v-for="donnee in donnees.results" :key="donnee.id">
             {{donnee}}
         </div>-->
-        <br/><div v-for="spell in selectedSpells" :key="spell.index"><router-link v-bind:to="'/spells/'+spell.index">{{spell?.name}}</router-link></div>
+        <br/><div v-for="spell in selectedSpells" :key="spell.index"><router-link v-bind:to="'/spells/'+spell.index" @click="incrementRecherches()">{{spell?.name}}</router-link></div>
     </div>
 </template>
 
@@ -76,6 +76,9 @@
                 }else{
                     this.result = "rentrez une catégorie (ex : spell, classes...) !";
                 }
+            },
+            incrementRecherches(){
+                this.$store.commit('incrementRecherche');
             }
         },
     });

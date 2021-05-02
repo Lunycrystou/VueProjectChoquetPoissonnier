@@ -35,7 +35,7 @@ const store = createStore({
   plugins: [ // On crée des cookies pour éviter que le nombre de visites et recherches retourne à 0 quand on actualise le site
     createPersistedState({
       getState: (key) => Cookies.getJSON(key),
-      setState: (key, state) => Cookies.set(key, state, { expires: 3, secure: true })
+      setState: (key, state) => Cookies.set(key, state, { expires: 7, secure: true })
     })
   ]
 });

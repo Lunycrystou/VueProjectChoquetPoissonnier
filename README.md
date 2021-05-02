@@ -12,16 +12,16 @@ Chaque page du site correspond à un component particulier. Les pages permettant
 A terme, le menu du site se trouvera dans un fichier à part qu'il faudra inclure (avec un include) sur chaque page même si pour l'instant, il est sur chaque page.  
 Rajouter une page au site ne posera pas beaucoup de tracas, il suffira de la rajouter dans le fichier router/routeur.ts sous la forme suivante :  
 Pour la page de recherche :  
-> {
->    path: '/nouvellechose',
->    component: nouvellechoseSearch,
-> },  
+    {
+        path: '/nouvellechose',
+        component: nouvellechoseSearch,
+    },  
 Et pour la page qui affiche le détail de ce que l'utilisateur a recherché :
-> {
->    path: '/nouvellechose/:name',
->    component: resultnouvellechoseSearch,
-> }  
+    {
+        path: '/nouvellechose/:name',
+        component: resultnouvellechoseSearch,
+    }  
 Ensuite, dans le menu, il faudra juste rajouter :  
-> <li class="nav-item">
->   <router-link to="/nouvellechose" class="nav-link">Nouvelle chose</router-link>
-> </li>
+    <li class="nav-item">
+        <router-link to="/nouvellechose" class="nav-link">Nouvelle chose</router-link>
+    </li>

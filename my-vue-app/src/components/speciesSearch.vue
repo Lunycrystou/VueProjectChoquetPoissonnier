@@ -12,6 +12,12 @@
                 <li class="nav-item">
                     <router-link to="/species" class="nav-link">Espèces</router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/classes" class="nav-link">Classes</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/equipment" class="nav-link">Equipment</router-link>
+                </li>
             </ul>
         </nav>
         <br/>

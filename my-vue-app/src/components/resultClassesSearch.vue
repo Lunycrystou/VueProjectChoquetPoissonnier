@@ -21,20 +21,16 @@
             </ul>
         </nav>
         <p class="h1">{{donnees.name}}</p>
-        <!-- <p class="h2"><i>{{donnees.name}} particularities</i></p> -->
         <br/>
         <div style="text-align:justify;margin: 1em">
-            <p><b>Age.</b><br/>{{donnees.age}}</p>
-            <p><b>Alignment.</b><br/>{{donnees.alignment}} </p>
-            <p><b>Size.</b><br/>{{donnees.size}}</p>
-            <p><b>Speed.</b><br/>{{donnees.speed}}ft</p>
-            <p><b>Languages.</b><br/>{{donnees.language_desc}}</p>
-            <p><b>Traits.<br/></b>
-            <!-- Les informations de traits disparaissent dés que l'on refresh la pag
-            fix simple : modifier un element de la page et faire ctrl+s
-             -->
+            <p><b>Hit die.</b><br/>{{donnees.hit_die}}</p>
+            <p><b>Proficiency choices.</b><br/>{{donnees.proficiency_choices}} </p>
+            <p><b>Proficiencies.</b><br/>{{donnees.proficiencies}}</p>
+            <p><b>Starting equipment.</b><br/>{{donnees.starting_equipment}}</p>
+            <p><b>Subclasses.</b><br/>{{donnees.subclasses}}</p>
+            <!--<p><b>Traits.<br/></b>
             <span v-for="(c,index) in traits" :key="index"><b>{{c.name}}</b><br/>
-            <p v-for="(i,index) in c.desc" :key="index">{{i}}</p></span></p>
+            <p v-for="(i,index) in c.desc" :key="index">{{i}}</p></span></p>-->
         </div> 
     </div>
 </template>
@@ -50,18 +46,18 @@
             const traits = ref(null);
             const route = useRoute();
             const name = route.params.name;
-            axios.get('https://www.dnd5eapi.co/api/races/'+name/*ici la valeur transmise dans l'url*/)
+            axios.get('https://www.dnd5eapi.co/api/classes/'+name/*ici la valeur transmise dans l'url*/)
             .then(function(response_one){
                 donnees.value = response_one.data;
-                let traitindex = donnees.value.traits;
-                let table = [];
+                /*let traitindex = donnees.value.traits;
+                let table = [];*/
                 /* Va renvoyer la description pour chaque traits */
-                traitindex.forEach(function(nomtrait){
+                /*traitindex.forEach(function(nomtrait){
                     axios.get('https://www.dnd5eapi.co/api/traits/'+nomtrait.index).then(function(response_two){
                         table.push(response_two.data);
                     })
                     traits.value = table;
-                });
+                });*/
             })
             .catch(function (error) {
                 console.error(error);

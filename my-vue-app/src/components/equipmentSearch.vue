@@ -28,7 +28,7 @@
         <div v-for="donnee in donnees.results" :key="donnee.id">
             {{donnee}}
         </div>-->
-        <br/><div v-for="spell in selectedSpells" :key="spell.index"><router-link v-bind:to="'/spells/'+spell.index" @click="incrementRecherches()">{{spell?.name}}</router-link></div>
+        <br/><div v-for="equipments in selectedEquipments" :key="equipments.index"><router-link v-bind:to="'/equipment/'+equipments.index" @click="incrementRecherches()">{{equipments?.name}}</router-link></div>
     </div>
 </template>
 
@@ -48,7 +48,7 @@
             },
             };*/
             axios
-            .get('https://www.dnd5eapi.co/api/spells'/*, options*/)
+            .get('https://www.dnd5eapi.co/api/equipment'/*, options*/)
             .then(function (response) {
                 donnees.value = response.data;
             })
@@ -70,7 +70,7 @@
                 return index.toLowerCase().includes(this.search.toLowerCase())
             },*/
             
-            selectedSpells(){
+            selectedEquipments(){
                 return this.donnees.results?.filter( donnee => donnee.name.toLowerCase().includes(this.filtre.toLowerCase()));
             }
         },

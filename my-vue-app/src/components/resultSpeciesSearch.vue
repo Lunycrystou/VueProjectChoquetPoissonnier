@@ -1,5 +1,5 @@
 <template>
-    <div v-if="donnees">
+    <div v-if="donnees != null && traits != null">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; border:1px dotted #82919b">
             <span class="navbar-brand">DnD Wiki</span>
             <ul class="navbar-nav">
@@ -15,15 +15,20 @@
             </ul>
         </nav>
         <p class="h1">{{donnees.name}}</p>
-        <p class="h2"><i>{{donnees.name}} particularités</i></p>
+        <!-- <p class="h2"><i>{{donnees.name}} particularities</i></p> -->
         <br/>
-        <div style="text-align:justify;">
-        <p><b>Age.</b> {{donnees.age}}</p>
-        <p><b>Alignment.</b> {{donnees.alignment}} </p>
-        <p><b>Size.</b>{{donnees.size}}</p>
-        <p><b>Speed.</b>{{donnees.speed}}ft</p>
-        <p><b>Languages.</b>{{donnees.language_desc}}</p>
-        {{traits}}
+        <div style="text-align:justify;margin: 1em">
+            <p><b>Age.</b><br/>{{donnees.age}}</p>
+            <p><b>Alignment.</b><br/>{{donnees.alignment}} </p>
+            <p><b>Size.</b><br/>{{donnees.size}}</p>
+            <p><b>Speed.</b><br/>{{donnees.speed}}ft</p>
+            <p><b>Languages.</b><br/>{{donnees.language_desc}}</p>
+            <p><b>Traits.<br/></b>
+            <!-- Les informations de traits disparaissent dés que l'on refresh la pag
+            fix simple : modifier un element de la page et faire ctrl+s
+             -->
+            <span v-for="(c,index) in traits" :key="index"><b>{{c.name}}</b><br/>
+            <p v-for="(i,index) in c.desc" :key="index">{{i}}</p></span></p>
         </div>
     </div>
 </template>
@@ -39,14 +44,19 @@
             const traits = ref(null);
             const route = useRoute();
             const name = route.params.name;
-            axios.all(
-                [axios.get('https://www.dnd5eapi.co/api/races/'+name/*ici la valeur transmise dans l'url*/)],
-                [axios.get('https://www.dnd5eapi.co/api/traits')]
-            )
-            .then(axios.spread(function(response_one, response_two){
+            axios.get('https://www.dnd5eapi.co/api/races/'+name/*ici la valeur transmise dans l'url*/)
+            .then(function(response_one){
                 donnees.value = response_one.data;
-                traits.value = response_two.data;
-            }))
+                let traitindex = donnees.value.traits;
+                let table = [];
+                /* Va renvoyer la description pour chaque trai */
+                traitindex.forEach(function(nomtrait){
+                    axios.get('https://www.dnd5eapi.co/api/traits/'+nomtrait.index).then(function(response_two){
+                        table.push(response_two.data);
+                    })
+                    traits.value = table;
+                });
+            })
             .catch(function (error) {
                 console.error(error);
             });

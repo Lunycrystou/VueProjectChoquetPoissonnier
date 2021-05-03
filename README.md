@@ -30,4 +30,6 @@ Ensuite, dans le menu, il faudra juste rajouter :
 <li class="nav-item">
     <router-link to="/nouvellechose" class="nav-link">Nouvelle chose</router-link>
 </li>
-```
+```  
+  
+/!\ Un problème demeure sur la page des espèces. La liste des traits est supposée être fonctionnelle (du moins à chaque modification du fichier resultSpeciesSearch.vue, après chaque sauvegarde elle s'affiche) mais elle disparaît lorsque la page est relancée.

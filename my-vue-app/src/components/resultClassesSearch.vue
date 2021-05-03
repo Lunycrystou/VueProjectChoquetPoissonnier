@@ -24,13 +24,10 @@
         <br/>
         <div style="text-align:justify;margin: 1em">
             <p><b>Hit die.</b><br/>{{donnees.hit_die}}</p>
-            <p><b>Proficiency choices.</b><br/>{{donnees.proficiency_choices}} </p>
-            <p><b>Proficiencies.</b><br/>{{donnees.proficiencies}}</p>
-            <p><b>Starting equipment.</b><br/>{{donnees.starting_equipment}}</p>
-            <p><b>Subclasses.</b><br/>{{donnees.subclasses}}</p>
-            <!--<p><b>Traits.<br/></b>
-            <span v-for="(c,index) in traits" :key="index"><b>{{c.name}}</b><br/>
-            <p v-for="(i,index) in c.desc" :key="index">{{i}}</p></span></p>-->
+            <p><b>Proficiency choices.</b><br/> <span v-for="(donnee,index) in donnees.proficiency_choices" :key="index">{{donnee.choose}} parmi <span v-for="(data,index) in donnee.from" :key="index">{{data.name}}<span v-if="index !== (donnee.from.length-1)">, </span></span><br/></span></p>
+            <p><b>Proficiencies.</b><br/> <span v-for="(donnee,index) in donnees.proficiencies" :key="index">{{donnee.name}}<span v-if="index !== (donnees.proficiencies.length-1)">, </span></span></p>
+            <p><b>Starting equipment.</b><br/> <span v-for="(donnee,index) in donnees.starting_equipment" :key="index">{{donnee.equipment.name}} x{{donnee.quantity}}<br/></span></p>
+            <p><b>Subclasses.</b><br/> <span v-for="(donnee,index) in donnees.subclasses" :key="index">{{donnee.name}}<span v-if="index !== (donnees.subclasses.length-1)">, </span></span></p>
         </div> 
     </div>
 </template>

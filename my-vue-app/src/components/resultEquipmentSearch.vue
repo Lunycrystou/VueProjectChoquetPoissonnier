@@ -40,7 +40,7 @@
             <span v-if="donnees.weight!=null"><p><b>Weight.</b><br/>{{donnees.weight}}</p></span>
             <span v-if="donnees.speed!=null"><p><b>Speed.</b><br/>{{donnees.speed.quantity}} {{donnees.speed.unit}}</p></span>
             <span v-if="donnees.capacity!=null"><p><b>Capacity.</b><br/>{{donnees.capacity}}</p></span>
-            <span v-if="donnees.properties!=null"><p><b>Properties.</b><br/><span v-for="(donnee,index) in donnees.properties" :key="index">{{donnee.name}}<span v-if="index !== (donnees.properties.length-1)">,</span></span></p></span>
+            <span v-if="donnees.properties!=null"><p><b>Properties.</b><br/><span v-for="(donnee,index) in donnees.properties" :key="index">{{donnee.name}}<span v-if="index !== (donnees.properties.length-1)">, </span></span></p></span>
         </div> 
     </div>
 </template>
